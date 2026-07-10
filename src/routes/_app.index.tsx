@@ -130,7 +130,7 @@ function Home() {
   return (
     <>
       <AppHeader
-        title="Olá, bem-vindo 👋"
+        title="Olá, bem-vindo"
         subtitle="Este é o que está acontecendo na sua oficina hoje."
         action={
           <Button size="lg" className="gap-2" onClick={() => setNovoAberto(true)}>
