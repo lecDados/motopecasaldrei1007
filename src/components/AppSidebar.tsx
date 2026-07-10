@@ -29,7 +29,7 @@ export function AppSidebar() {
           <Bike className="h-5 w-5" />
         </div>
         <div>
-          <div className="text-sm font-semibold text-foreground">MotoShop</div>
+          <div className="text-sm font-semibold text-foreground">Aldrei Moto Peças</div>
           <div className="text-xs text-muted-foreground">Gestão de Oficina</div>
         </div>
       </div>
