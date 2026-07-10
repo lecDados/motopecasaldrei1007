@@ -1,4 +1,4 @@
-import { Bell, Search, Settings2 } from "lucide-react";
+import { Search } from "lucide-react";
 
 export function AppHeader({ title, subtitle, action }: { title: string; subtitle?: string; action?: React.ReactNode }) {
   const now = new Date().toLocaleDateString("pt-BR", {
@@ -19,12 +19,6 @@ export function AppHeader({ title, subtitle, action }: { title: string; subtitle
         </div>
         <div className="text-xs text-muted-foreground first-letter:uppercase">{now}</div>
         <div className="flex items-center gap-2">
-          <button className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-surface text-muted-foreground transition-colors hover:text-foreground">
-            <Settings2 className="h-4 w-4" />
-          </button>
-          <button className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-surface text-muted-foreground transition-colors hover:text-foreground">
-            <Bell className="h-4 w-4" />
-          </button>
           <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/20 text-sm font-semibold text-primary">
             OF
           </div>
