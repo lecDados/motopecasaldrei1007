@@ -63,7 +63,7 @@ export function AppSidebar() {
 
       <div className="mt-4 rounded-xl border border-border bg-surface p-4">
         <div className="text-xs text-muted-foreground">Versão</div>
-        <div className="text-sm font-medium text-foreground">MotoShop 1.0</div>
+        <div className="text-sm font-medium text-foreground">Aldrei Moto Peças 1.0</div>
       </div>
     </aside>
   );
