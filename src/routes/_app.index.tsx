@@ -238,6 +238,9 @@ function Home() {
                   <Td className="text-right">
                     <div className="inline-flex gap-1">
                       <IconBtn onClick={() => setVisualizar(s)} title="Visualizar"><Eye className="h-4 w-4" /></IconBtn>
+                      <IconBtn onClick={() => alternarStatus(s)} title={s.status?.toLowerCase() === "pago" ? "Marcar como pendente" : "Marcar como pago"}>
+                        {s.status?.toLowerCase() === "pago" ? <Clock className="h-4 w-4" /> : <CircleDollarSign className="h-4 w-4 text-success" />}
+                      </IconBtn>
                       <Link to="/historico" className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground" title="Editar"><Pencil className="h-4 w-4" /></Link>
                       <IconBtn onClick={() => setExcluirId(s.id)} title="Excluir"><Trash2 className="h-4 w-4" /></IconBtn>
                     </div>
