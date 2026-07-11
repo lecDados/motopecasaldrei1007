@@ -119,12 +119,26 @@ function Home() {
     );
   }).slice(0, 10);
 
+  const queryClient = useQueryClient();
+
   async function confirmarExcluir() {
     if (!excluirId) return;
     const { error } = await supabase.from("historico_vendas").delete().eq("id", excluirId);
     if (error) toast.error(error.message);
-    else toast.success("Serviço excluído.");
+    else {
+      toast.success("Serviço excluído.");
+      queryClient.invalidateQueries({ queryKey: ["servicos"] });
+    }
     setExcluirId(null);
+  }
+
+  async function alternarStatus(s: ServicoRow) {
+    const novo = s.status?.toLowerCase() === "pago" ? "Pendente" : "Pago";
+    const { error } = await supabase.from("historico_vendas").update({ status: novo }).eq("id", s.id);
+    if (error) return toast.error(error.message);
+    toast.success(`Status alterado para ${novo}.`);
+    queryClient.invalidateQueries({ queryKey: ["servicos"] });
+    window.dispatchEvent(new Event("oficina:finance"));
   }
 
   return (
