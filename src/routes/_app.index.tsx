@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Plus, ArrowUpRight, Wallet, Boxes, ShoppingCart, TriangleAlert, TrendingUp, Wrench, Trash2, Pencil, Eye } from "lucide-react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { Plus, ArrowUpRight, Wallet, Boxes, ShoppingCart, TriangleAlert, TrendingUp, Wrench, Trash2, Pencil, Eye, CircleDollarSign, Clock } from "lucide-react";
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, PieChart, Pie, Cell, LineChart, Line, CartesianGrid } from "recharts";
 import { toast } from "sonner";
 
@@ -119,12 +119,26 @@ function Home() {
     );
   }).slice(0, 10);
 
+  const queryClient = useQueryClient();
+
   async function confirmarExcluir() {
     if (!excluirId) return;
     const { error } = await supabase.from("historico_vendas").delete().eq("id", excluirId);
     if (error) toast.error(error.message);
-    else toast.success("Serviço excluído.");
+    else {
+      toast.success("Serviço excluído.");
+      queryClient.invalidateQueries({ queryKey: ["servicos"] });
+    }
     setExcluirId(null);
+  }
+
+  async function alternarStatus(s: ServicoRow) {
+    const novo = s.status?.toLowerCase() === "pago" ? "Pendente" : "Pago";
+    const { error } = await supabase.from("historico_vendas").update({ status: novo }).eq("id", s.id);
+    if (error) return toast.error(error.message);
+    toast.success(`Status alterado para ${novo}.`);
+    queryClient.invalidateQueries({ queryKey: ["servicos"] });
+    window.dispatchEvent(new Event("oficina:finance"));
   }
 
   return (
@@ -224,6 +238,9 @@ function Home() {
                   <Td className="text-right">
                     <div className="inline-flex gap-1">
                       <IconBtn onClick={() => setVisualizar(s)} title="Visualizar"><Eye className="h-4 w-4" /></IconBtn>
+                      <IconBtn onClick={() => alternarStatus(s)} title={s.status?.toLowerCase() === "pago" ? "Marcar como pendente" : "Marcar como pago"}>
+                        {s.status?.toLowerCase() === "pago" ? <Clock className="h-4 w-4" /> : <CircleDollarSign className="h-4 w-4 text-success" />}
+                      </IconBtn>
                       <Link to="/historico" className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground" title="Editar"><Pencil className="h-4 w-4" /></Link>
                       <IconBtn onClick={() => setExcluirId(s.id)} title="Excluir"><Trash2 className="h-4 w-4" /></IconBtn>
                     </div>
