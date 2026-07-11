@@ -86,6 +86,13 @@ export function registrarGanho(valor: number) {
   window.dispatchEvent(new Event("oficina:finance"));
 }
 
+export function debitarMes(valor: number) {
+  rolloverIfNeeded();
+  const atual = safeGet<number>(KEYS.mes, 0);
+  set(KEYS.mes, atual - valor);
+  window.dispatchEvent(new Event("oficina:finance"));
+}
+
 export function getGanhos() {
   rolloverIfNeeded();
   return {
