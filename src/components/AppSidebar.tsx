@@ -9,6 +9,7 @@ import {
   Settings,
   Bike,
   Menu,
+  Wallet,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -18,6 +19,7 @@ const menu = [
   { to: "/produtos", label: "Produtos", icon: Package },
   { to: "/estoque", label: "Controle de Estoque", icon: Boxes },
   { to: "/historico", label: "Histórico de Serviços", icon: Wrench },
+  { to: "/contas", label: "Pagar Contas", icon: Wallet },
   { to: "/relatorios", label: "Relatórios", icon: BarChart3 },
   { to: "/configuracoes", label: "Configurações", icon: Settings },
 ] as const;
