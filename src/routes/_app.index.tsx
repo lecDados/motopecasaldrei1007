@@ -177,7 +177,7 @@ function Home() {
           </div>
         </Panel>
 
-        <Panel title="Serviços por tipo">
+        <Panel title="Serviços por tipo" className="text-white">
           <div className="h-72">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -186,7 +186,7 @@ function Home() {
                     <Cell key={i} fill={["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)"][i % 5]} />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 12 }} />
+                <Tooltip contentStyle={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 12 }} itemStyle={{ color: "#ffffff" }} labelStyle={{ color: "#ffffff" }} />
               </PieChart>
             </ResponsiveContainer>
           </div>
