@@ -20,7 +20,7 @@ export function AppHeader({ title, subtitle, action }: { title: string; subtitle
         <div className="text-xs text-muted-foreground first-letter:uppercase">{now}</div>
         <div className="flex items-center gap-2">
           <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/20 text-sm font-semibold text-primary">
-            OF
+            AM
           </div>
         </div>
       </div>
