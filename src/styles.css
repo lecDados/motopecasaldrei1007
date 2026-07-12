@@ -137,3 +137,6 @@
   border-radius: var(--radius-2xl);
   box-shadow: 0 1px 0 0 rgb(255 255 255 / 0.02), 0 20px 40px -20px rgb(0 0 0 / 0.5);
 }
+#lovable-badge-cta {
+  display: none !important;
+}
