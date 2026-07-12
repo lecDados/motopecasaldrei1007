@@ -177,7 +177,7 @@ function Home() {
           </div>
         </Panel>
 
-        <Panel title="Serviços por tipo">
+        <Panel title="Serviços por tipo" className="text-white">
           <div className="h-72">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
