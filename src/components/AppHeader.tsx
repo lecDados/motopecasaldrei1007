@@ -18,11 +18,6 @@ export function AppHeader({ title, subtitle, action }: { title: string; subtitle
           />
         </div>
         <div className="text-xs text-muted-foreground first-letter:uppercase">{now}</div>
-        <div className="flex items-center gap-2">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary/20 text-sm font-semibold text-primary">
-            AM
-          </div>
-        </div>
       </div>
 
       <div className="flex flex-wrap items-end justify-between gap-4">
