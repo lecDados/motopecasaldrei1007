@@ -1,0 +1,1 @@
+ALTER TABLE public.historico_vendas ADD COLUMN IF NOT EXISTS quilometragem integer;
