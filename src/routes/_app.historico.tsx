@@ -21,7 +21,7 @@ export const Route = createFileRoute("/_app/historico")({
 type Row = {
   id: string; cliente: string; placa: string | null; marca_moto: string | null; cor_moto: string | null;
   tipo_servico: string | null; produtos: any; valor_total: number; valor_servico: number; valor_produtos: number;
-  status: string; forma_pagamento: string | null; data_servico: string;
+  status: string; forma_pagamento: string | null; data_servico: string; quilometragem: number | null;
 };
 
 function HistoricoPage() {
