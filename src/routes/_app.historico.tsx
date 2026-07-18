@@ -128,6 +128,7 @@ function HistoricoPage() {
               <Info k="Moto" v={`${ver.marca_moto || "-"} · ${ver.cor_moto || "-"}`} />
               <Info k="Placa" v={ver.placa || "-"} />
               <Info k="Tipo" v={ver.tipo_servico || "-"} />
+              <Info k="Quilometragem" v={ver.quilometragem != null ? `${ver.quilometragem} km` : "-"} />
               <Info k="Pagamento" v={`${ver.forma_pagamento || "-"} · ${ver.status}`} />
               <Info k="Data" v={formatDateBR(ver.data_servico)} />
               <div>
