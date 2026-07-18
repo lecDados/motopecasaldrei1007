@@ -25,11 +25,6 @@ function ConfigPage() {
       <AppHeader title="Configurações" subtitle="Ajustes gerais do sistema." />
       <div className="grid gap-4 md:grid-cols-2">
         <div className="card-surface p-5">
-          <h3 className="text-sm font-semibold">Nome da Oficina</h3>
-          <p className="mt-1 text-sm text-muted-foreground">Personalize o nome exibido no topo.</p>
-          <input defaultValue="MotoShop" className="mt-4 w-full rounded-xl border border-border bg-background py-2.5 px-3 text-sm" />
-        </div>
-        <div className="card-surface p-5">
           <h3 className="text-sm font-semibold">Financeiro (LocalStorage)</h3>
           <p className="mt-1 text-sm text-muted-foreground">Utilitários para reiniciar contadores.</p>
           <div className="mt-4 flex flex-wrap gap-2">

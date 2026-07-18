@@ -25,6 +25,7 @@ export type Database = {
           marca_moto: string | null
           placa: string | null
           produtos: Json
+          quilometragem: number | null
           status: string
           tipo_servico: string | null
           valor_produtos: number
@@ -41,6 +42,7 @@ export type Database = {
           marca_moto?: string | null
           placa?: string | null
           produtos?: Json
+          quilometragem?: number | null
           status?: string
           tipo_servico?: string | null
           valor_produtos?: number
@@ -57,6 +59,7 @@ export type Database = {
           marca_moto?: string | null
           placa?: string | null
           produtos?: Json
+          quilometragem?: number | null
           status?: string
           tipo_servico?: string | null
           valor_produtos?: number

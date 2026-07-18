@@ -46,6 +46,7 @@ export function NovoServicoModal({ open, onOpenChange }: { open: boolean; onOpen
   const [marca, setMarca] = useState("");
   const [cor, setCor] = useState("");
   const [placa, setPlaca] = useState("");
+  const [quilometragem, setQuilometragem] = useState<number | "">("");
   const [tipoServico, setTipoServico] = useState("");
   const [valorServico, setValorServico] = useState<number>(0);
   const [formaPagamento, setFormaPagamento] = useState("Pix");
@@ -61,7 +62,7 @@ export function NovoServicoModal({ open, onOpenChange }: { open: boolean; onOpen
   const valorTotal = valorProdutos + (Number(valorServico) || 0);
 
   function reset() {
-    setCliente(""); setMarca(""); setCor(""); setPlaca(""); setTipoServico("");
+    setCliente(""); setMarca(""); setCor(""); setPlaca(""); setQuilometragem(""); setTipoServico("");
     setValorServico(0); setFormaPagamento("Pix"); setStatus("Pago");
     setLinhas([]); setProdutoSel(""); setQtd(1);
   }
@@ -119,6 +120,7 @@ export function NovoServicoModal({ open, onOpenChange }: { open: boolean; onOpen
         marca_moto: marca || null,
         cor_moto: cor || null,
         tipo_servico: tipoServico || null,
+        quilometragem: quilometragem === "" ? null : Number(quilometragem),
         produtos: linhas as any,
         valor_produtos: valorProdutos,
         valor_servico: Number(valorServico) || 0,
@@ -177,6 +179,7 @@ export function NovoServicoModal({ open, onOpenChange }: { open: boolean; onOpen
           <Field label="Placa"><Input value={placa} onChange={(e) => setPlaca(maskPlaca(e.target.value))} placeholder="ABC-1234" /></Field>
           <Field label="Marca da Moto"><Input value={marca} onChange={(e) => setMarca(e.target.value)} /></Field>
           <Field label="Cor"><Input value={cor} onChange={(e) => setCor(e.target.value)} /></Field>
+          <Field label="Quilometragem (km)"><Input type="number" min={0} value={quilometragem} onChange={(e) => setQuilometragem(e.target.value === "" ? "" : Number(e.target.value))} placeholder="Ex: 25000" /></Field>
           <Field label="Tipo de Serviço"><Input value={tipoServico} onChange={(e) => setTipoServico(e.target.value)} placeholder="Troca de óleo, revisão..." /></Field>
           <Field label="Valor do Serviço (R$)"><Input type="number" min={0} step="0.01" value={valorServico} onChange={(e) => setValorServico(Number(e.target.value))} /></Field>
           <Field label="Forma de Pagamento">
